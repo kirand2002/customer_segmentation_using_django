@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'adminhome' %}">Dashboard</a>
+        <a href="{% url 'adminviewusers' %}">View Users</a>
+        <a href="{% url 'adminviewfaq' %}">View FAQs</a>
+        <a href="{% url 'addfaq' %}">Add FAQs</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </nav>
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
