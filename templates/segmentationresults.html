@@ -1,0 +1,34 @@
+{% extends 'userbase.html' %}
+{% block content %}
+    <h1>Segmentation Results</h1>
+
+    {% if feature_importance_plot %}
+        <h2>Feature Importance</h2>
+        <img src="data:image/png;base64,{{ feature_importance_plot }}" alt="Feature Importance">
+    {% endif %}
+
+
+    <br/><br/> <br/><br/> <br/>
+
+
+    {% if cluster_plot %}
+        <h2>Customer Segmentation</h2>
+        <img src="data:image/png;base64,{{ cluster_plot }}" alt="Cluster Plot">
+    {% endif %}
+
+
+    <br/><br/> <br/><br/> <br/>
+
+    {% if feature_importance %}
+        <h2>Feature Importance Scores</h2>
+        <ul>
+            {% for feature, importance in feature_importance.items %}
+                <li><strong>{{ feature }}</strong>: {{ importance }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <br/><br/>
+
+    <a href="{% url 'segmentation' %}" class="btn btn-primary">Upload Another File</a>
+{% endblock %}

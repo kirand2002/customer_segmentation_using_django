@@ -16,8 +16,11 @@ urlpatterns = [
     path('adminviewfaq/', views.admin_view_faq, name='adminviewfaq'),  
     path('addfaq/', views.add_faq, name='addfaq'), 
     path('logout/', views.logout_view, name='logout'), 
-    path('predict/', views.predict, name='predict'),
+    path('segmentation/', views.segmentation, name='segmentation'),
     path('userviewfaq/', views.user_view_faq, name='userviewfaq'), 
-
+    path('segmentationresults/',views.segmentationresults, name='segmentationresults'),
 ]
+
+
+
 

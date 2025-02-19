@@ -1,0 +1,30 @@
+{% extends 'userbase.html' %}
+{% block content %}
+    <h1>Customer Segmentation</h1>
+    <form method="POST" action="{% url 'segmentation' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="file">Upload CSV File:</label>
+        <input type="file" name="file" id="file" required>
+        <label for="main_col">Target Column:</label>
+        <input type="text" name="main_col" id="main_col" required>
+        <label for="index_col">Index Column:</label>
+        <input type="text" name="index_col" id="index_col" required>
+        <button type="submit">Segment Data</button>
+    </form>
+
+    {% if feature_importance_plot %}
+        <h2>Feature Importance</h2>
+        <img src="data:image/png;base64,{{ feature_importance_plot }}" alt="Feature Importance">
+    {% endif %}
+
+    <br/><br/><br/><br/><br/><br/>
+
+    {% if cluster_plot %}
+        <h2>Customer Segmentation</h2>
+        <img src="data:image/png;base64,{{ cluster_plot }}" alt="Cluster Plot">
+    {% endif %}
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+{% endblock %}
