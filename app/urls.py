@@ -7,8 +7,7 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('signup/', views.signup, name='signup'),
     path('userlogin/', views.user_login, name='userlogin'),
-    path('adminlogin/', views.admin_login, name='adminlogin'),
-    path('adminloginNext/', views.admin_login_next, name='adminloginNext'),  
+    path('adminlogin/', views.admin_login, name='adminlogin'), 
     path('userhome/', views.user_home, name='userhome'),
     path('adminhome/', views.admin_home, name='adminhome'),
     path('logout/', views.logout_view, name='logout'),
@@ -19,6 +18,9 @@ urlpatterns = [
     path('segmentation/', views.segmentation, name='segmentation'),
     path('userviewfaq/', views.user_view_faq, name='userviewfaq'), 
     path('segmentationresults/',views.segmentationresults, name='segmentationresults'),
+    path('segmentationcols/',views.segmentation_cols, name='segmentationcols'),
+   
+
 ]
 
 

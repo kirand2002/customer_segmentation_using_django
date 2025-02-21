@@ -1,6 +1,23 @@
 {% extends "userbase.html" %}
 
 {% block content %}
-    <h1>Welcome, {{ request.user.username }}!</h1>
-    <p>This is your dashboard.</p>
-{% endblock %}   
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h1 class="text-center text-primary">Welcome, {{ request.user.username }}!</h1>
+        <p class="text-center lead">This is your personalized dashboard.</p>
+
+        <!-- Quick Access Links -->
+        <div class="row mt-4 text-center">
+            <div class="col-md-4">
+                <a href="{% url 'segmentation' %}" class="btn btn-success w-100 py-3">Run Segmentation</a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'userviewfaq' %}" class="btn btn-info w-100 py-3">View FAQs</a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'logout' %}" class="btn btn-danger w-100 py-3">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

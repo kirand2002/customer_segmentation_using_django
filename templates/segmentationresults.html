@@ -1,34 +1,52 @@
 {% extends 'userbase.html' %}
 {% block content %}
-    <h1>Segmentation Results</h1>
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-center text-primary">Segmentation Results</h2>
 
-    {% if feature_importance_plot %}
-        <h2>Feature Importance</h2>
-        <img src="data:image/png;base64,{{ feature_importance_plot }}" alt="Feature Importance">
-    {% endif %}
+        <!-- Feature Importance Plot -->
+        {% if feature_importance_plot %}
+            <div class="mt-4 text-center">
+                <h3 class="text-primary">Feature Importance</h3>
+                <img src="data:image/png;base64,{{ feature_importance_plot }}" alt="Feature Importance" class="img-fluid rounded shadow">
+            </div>
+        {% endif %}
 
+        <!-- Customer Segmentation Plot -->
+        {% if cluster_plot %}
+            <div class="mt-4 text-center">
+                <h3 class="text-primary">Customer Segmentation</h3>
+                <img src="data:image/png;base64,{{ cluster_plot }}" alt="Cluster Plot" class="img-fluid rounded shadow">
+            </div>
+        {% endif %}
 
-    <br/><br/> <br/><br/> <br/>
+        <!-- Feature Importance Scores -->
+        {% if feature_importance %}
+            <div class="mt-5">
+                <h3 class="text-primary text-center">Feature Importance Scores</h3>
+                <table class="table table-bordered table-striped mt-3">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Feature</th>
+                            <th>Importance Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for feature, importance in feature_importance.items %}
+                            <tr>
+                                <td>{{ feature }}</td>
+                                <td>{{ importance }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
 
-
-    {% if cluster_plot %}
-        <h2>Customer Segmentation</h2>
-        <img src="data:image/png;base64,{{ cluster_plot }}" alt="Cluster Plot">
-    {% endif %}
-
-
-    <br/><br/> <br/><br/> <br/>
-
-    {% if feature_importance %}
-        <h2>Feature Importance Scores</h2>
-        <ul>
-            {% for feature, importance in feature_importance.items %}
-                <li><strong>{{ feature }}</strong>: {{ importance }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
-    <br/><br/>
-
-    <a href="{% url 'segmentation' %}" class="btn btn-primary">Upload Another File</a>
+        <!-- Upload Another File Button -->
+        <div class="text-center mt-4">
+            <a href="{% url 'segmentation' %}" class="btn btn-primary btn-lg">Upload Another File</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

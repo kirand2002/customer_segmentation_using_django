@@ -1,6 +1,70 @@
-
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
-<h1>About Us</h1>
-<p>Information about the platform.</p>
+<!-- Hero Section -->
+<section class="hero bg-primary text-white text-center py-5">
+    <div class="container">
+        <h1 class="display-4">About Customer Segmentation</h1>
+        <p class="lead">Empowering businesses with data-driven insights to better understand their customers.</p>
+    </div>
+</section>
+
+<!-- About Section -->
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>What is Customer Segmentation?</h2>
+            <p>
+                Customer segmentation is the process of dividing a customer base into groups based on common characteristics.
+                This helps businesses understand customer needs and target them more effectively.
+            </p>
+            <ul>
+                <li><strong>Demographic Segmentation:</strong> Age, gender, income, occupation.</li>
+                <li><strong>Behavioral Segmentation:</strong> Purchase behavior, brand interactions.</li>
+                <li><strong>Psychographic Segmentation:</strong> Lifestyle, interests, values.</li>
+                <li><strong>Geographic Segmentation:</strong> Location-based targeting.</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <img src="{% static 'images/customer_segmentation.jpg' %}" alt="Customer Segmentation" class="img-fluid rounded shadow">
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Section -->
+<section class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Why Customer Segmentation Matters</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h5>Better Marketing Strategies</h5>
+                    <p>Target the right audience with personalized campaigns.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h5>Increased Customer Satisfaction</h5>
+                    <p>Understand customer needs and improve user experience.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h5>Higher Business Revenue</h5>
+                    <p>Optimize pricing and promotions for different segments.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="text-center py-5">
+    <div class="container">
+        <h2>Start Segmenting Your Customers Today!</h2>
+        <p>Gain actionable insights and drive business growth.</p>
+        <a href="{% url 'signup' %}" class="btn btn-primary btn-lg">Get Started</a>
+    </div>
+</section>
 {% endblock %}

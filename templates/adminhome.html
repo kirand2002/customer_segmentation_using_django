@@ -1,6 +1,42 @@
 {% extends "adminbase.html" %}
 {% block content %}
-    <h1>Admin Dashboard</h1>
-    <p>Welcome, Admin! Here you can manage users and view statistics.</p>
-    
-{% endblock %}  
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-center text-primary">Admin Dashboard</h2>
+        <p class="text-center">Welcome, Admin! Here you can manage users and view statistics.</p>
+
+        <!-- Admin Options -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card text-white bg-primary mb-3 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">View Users</h5>
+                        <p class="card-text">Check and manage all registered users.</p>
+                        <a href="{% url 'adminviewusers' %}" class="btn btn-light">Go to Users</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-white bg-success mb-3 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Add FAQs</h5>
+                        <p class="card-text">Add frequently asked questions.</p>
+                        <a href="{% url 'addfaq' %}" class="btn btn-light">Add FAQs</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-white bg-danger mb-3 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Logout</h5>
+                        <p class="card-text">Sign out from the admin dashboard.</p>
+                        <a href="{% url 'logout' %}" class="btn btn-light">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

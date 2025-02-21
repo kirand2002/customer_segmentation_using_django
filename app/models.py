@@ -7,7 +7,7 @@ class Signup(models.Model):
     uphone = models.CharField(max_length=15)
     username = models.CharField(max_length=100, unique=True)
     password = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)  
+    email = models.EmailField(unique=True,blank=True,null=True)  
 
     def __str__(self):
         return f'{self.username} {self.email}'

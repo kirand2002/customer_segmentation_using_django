@@ -1,10 +1,26 @@
 {% extends 'base.html' %}
-    {% block content %}
-    <h1>User Login</h1>
-    <form method="POST" action="{% url 'userlogin' %}">
-        {% csrf_token %}
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-    </form>
-    {% endblock %}
+{% load static %}
+
+{% block content %}
+<!-- User Login Section -->
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card p-4 shadow-lg" style="width: 400px;">
+        <h2 class="text-center text-primary">User Login</h2>
+        <form method="POST" action="{% url 'userlogin' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+            </div>
+            <button type="submit" class="btn btn-danger w-100">Login</button>
+        </form>
+        <div class="text-center mt-3">
+            <p>Don't have an account? <a href="{% url 'signup' %}" class="text-primary">Sign Up</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

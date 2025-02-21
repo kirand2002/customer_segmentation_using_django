@@ -1,30 +1,70 @@
 {% extends 'userbase.html' %}
 {% block content %}
-    <h1>Customer Segmentation</h1>
-    <form method="POST" action="{% url 'segmentation' %}" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label for="file">Upload CSV File:</label>
-        <input type="file" name="file" id="file" required>
-        <label for="main_col">Target Column:</label>
-        <input type="text" name="main_col" id="main_col" required>
-        <label for="index_col">Index Column:</label>
-        <input type="text" name="index_col" id="index_col" required>
-        <button type="submit">Segment Data</button>
-    </form>
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-center text-primary">Customer Segmentation</h2>
+        <p class="text-center">Upload your CSV file and select the necessary columns to perform segmentation.</p>
 
-    {% if feature_importance_plot %}
-        <h2>Feature Importance</h2>
-        <img src="data:image/png;base64,{{ feature_importance_plot }}" alt="Feature Importance">
-    {% endif %}
+        <!-- File Upload Form -->
+        <form method="POST" action="{% url 'segmentation' %}" enctype="multipart/form-data" class="mt-4">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="file" class="form-label">Upload CSV File</label>
+                <input type="file" class="form-control" name="file" id="file" required onchange="updateDropdowns()">
+            </div>
 
-    <br/><br/><br/><br/><br/><br/>
+            <!-- Target Column Dropdown -->
+            <div class="mb-3">
+                <label for="main_col" class="form-label">Select Target Column</label>
+                <select class="form-select" name="main_col" id="main_col" required>
+                    <option value="">-- Select Target Column --</option>
+                </select>
+            </div>
 
-    {% if cluster_plot %}
-        <h2>Customer Segmentation</h2>
-        <img src="data:image/png;base64,{{ cluster_plot }}" alt="Cluster Plot">
-    {% endif %}
+            <!-- Index Column Dropdown -->
+            <div class="mb-3">
+                <label for="index_col" class="form-label">Select Index Column</label>
+                <select class="form-select" name="index_col" id="index_col" required>
+                    <option value="">-- Select Index Column --</option>
+                </select>
+            </div>
 
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
+            <button type="submit" class="btn btn-success w-100">Segment Data</button>
+        </form>
+
+        <!-- Display Error Messages -->
+        {% if error %}
+            <div class="alert alert-danger mt-3">{{ error }}</div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- JavaScript to Populate Dropdowns -->
+<script>
+function updateDropdowns() {
+    var fileInput = document.getElementById('file');
+    var file = fileInput.files[0];
+
+    if (file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var csvData = e.target.result;
+            var rows = csvData.split("\n");
+            var headers = rows[0].split(",");  // Extract column names
+
+            var mainColSelect = document.getElementById('main_col');
+            var indexColSelect = document.getElementById('index_col');
+
+            mainColSelect.innerHTML = '<option value="">-- Select Target Column --</option>';
+            indexColSelect.innerHTML = '<option value="">-- Select Index Column --</option>';
+
+            headers.forEach(function(column) {
+                mainColSelect.innerHTML += `<option value="${column.trim()}">${column.trim()}</option>`;
+                indexColSelect.innerHTML += `<option value="${column.trim()}">${column.trim()}</option>`;
+            });
+        };
+        reader.readAsText(file);
+    }
+}
+</script>
 {% endblock %}
