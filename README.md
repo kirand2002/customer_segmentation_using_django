@@ -55,11 +55,13 @@ cd customer-segmentation
 🌍 Live Demo
 
 Click below link to view the live demo
+
 https://customer-segmentation-using-django.onrender.com
 
 📷 Screenshots
 
-https://github.com/user-attachments/assets/11410953-fdaf-455a-9a34-673aafea3075
+![Screenshot (7)](https://github.com/user-attachments/assets/b20bb182-d597-45e1-9ba5-6e4343c0aa26)
+
 
 
 
