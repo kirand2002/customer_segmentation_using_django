@@ -26,7 +26,16 @@ SECRET_KEY = "django-insecure-kbpoc6v^@hf89)51vd2+yiov__rw*#4ce79fqc8!6ns278!-q0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "customer-segmentation-using-django.onrender.com",
+    "127.0.0.1",
+    "localhost"
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://customer-segmentation-using-django.onrender.com"
+]
+
 
 
 # Application definition
