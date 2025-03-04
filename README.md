@@ -54,10 +54,3 @@ cd customer-segmentation
 
 ## Live Demo  
 [View Project](https://customer-segmentation-using-django.onrender.com)
-
-
-
-
-🤝 Contributing
-
-Contributions are welcome! Feel free to fork the repo and submit a pull request.
