@@ -50,3 +50,25 @@ customer_segmentation/
 ```sh
 git clone https://github.com/kirand2002/customer_segmentation_using_django
 cd customer-segmentation
+
+
+🌍 Live Demo
+
+Click below link to view the live demo
+https://customer-segmentation-using-django.onrender.com
+
+📷 Screenshots
+
+![Screenshot (7)](https://github.com/user-attachments/assets/b554ebd1-afbe-4313-9a10-0bd07d07e641)
+
+
+![Screenshot (8)](https://github.com/user-attachments/assets/1fb3a271-a435-4450-9c44-eb06bc49ed06)
+
+![Screenshot (9)](https://github.com/user-attachments/assets/afc2a978-4ff9-4138-a722-268d29eddb12)
+
+![Screenshot (10)](https://github.com/user-attachments/assets/1633f9c1-726c-48be-b110-57f6083124e4)
+
+
+🤝 Contributing
+
+Contributions are welcome! Feel free to fork the repo and submit a pull request.
